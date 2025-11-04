@@ -271,13 +271,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img');
         img.src = url;
         img.alt = "Додане зображення";
-        img.onerror = () => {
-            imgContainer.innerHTML = `<p style="color: red;">Не вдалося завантажити зображення</p>`;
-        };
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Видалити';
         deleteBtn.dataset.url = url;
+
+        img.onerror = () => {
+            const errorP = document.createElement('p');
+            errorP.style.color = 'red';
+            errorP.style.padding = '10px';
+            errorP.textContent = `Не вдалося завантажити зображення`;
+            
+            // 2. Видаляємо зламаний елемент <img>
+            img.remove(); 
+            
+            // 3. Додаємо повідомлення про помилку ПЕРЕД кнопкою "Видалити"
+            imgContainer.insertBefore(errorP, deleteBtn);
+        };
 
         deleteBtn.addEventListener('click', () => {
             imgContainer.remove();

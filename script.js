@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = url;
         img.alt = "Додане зображення";
         img.onerror = () => {
-            imgContainer.innerHTML = `<p style="color: red;">Не вдалося завантажити зображення: ${url}</p>`;
+            imgContainer.innerHTML = `<p style="color: red;">Не вдалося завантажити зображення</p>`;
         };
 
         const deleteBtn = document.createElement('button');

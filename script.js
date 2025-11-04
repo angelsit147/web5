@@ -282,10 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
             errorP.style.padding = '10px';
             errorP.textContent = `Не вдалося завантажити зображення`;
             
-            // 2. Видаляємо зламаний елемент <img>
             img.remove(); 
             
-            // 3. Додаємо повідомлення про помилку ПЕРЕД кнопкою "Видалити"
             imgContainer.insertBefore(errorP, deleteBtn);
         };
 
